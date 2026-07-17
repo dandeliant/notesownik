@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notesownik - Wizualne tablice w stylu Padlet</title>
+    <meta name="description" content="Twórz kolorowe tablice z notatkami, obrazami, filmami i plikami. Wizualne katalogowanie w stylu Padlet - polska aplikacja PWA działająca offline.">
+    <meta name="theme-color" content="#ff6b6b">
+    <meta name="color-scheme" content="light dark">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Notesownik">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Notesownik">
+
+    <meta property="og:title" content="Notesownik - Twoja wizualna tablica">
+    <meta property="og:description" content="Wizualne tablice do katalogowania plików, filmów, muzyki, kart pracy i notatek.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pl_PL">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+
+<!-- ============================================================ -->
+<!-- LANDING / HOME VIEW                                          -->
+<!-- ============================================================ -->
+<section class="view" id="view-home">
+    <header class="landing-nav">
+        <a href="#/" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h12l4 4v12a0 0 0 0 1 0 0H4z"/>
+                    <polyline points="16 4 16 8 20 8"/>
+                    <line x1="8" y1="13" x2="16" y2="13"/>
+                    <line x1="8" y1="17" x2="13" y2="17"/>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <h1>Notesownik</h1>
+                <span class="logo-tagline">Twoja wizualna tablica</span>
+            </div>
+        </a>
+
+        <nav class="landing-nav-links">
+            <a href="#features">Funkcje</a>
+            <a href="#types">Typy treści</a>
+            <a href="#boards">Moje tablice</a>
+            <button class="icon-btn" id="themeBtnHome" title="Zmień motyw">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="primary-btn" id="heroCreateBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                <span>Nowa tablica</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-decoration">
+            <div class="float-card fc-1" data-color="yellow">
+                <div class="fc-title">📚 Lekcja 5</div>
+                <div class="fc-body">Ułamki dziesiętne</div>
+            </div>
+            <div class="float-card fc-2" data-color="pink">
+                <div class="fc-title">🎵 Playlist</div>
+                <div class="fc-body">Muzyka do nauki</div>
+            </div>
+            <div class="float-card fc-3" data-color="blue">
+                <div class="fc-title">🎬 Tutorial</div>
+                <div class="fc-body">Jak rysować perspektywę</div>
+            </div>
+            <div class="float-card fc-4" data-color="green">
+                <div class="fc-title">📄 Karta pracy</div>
+                <div class="fc-body">Czasowniki nieregularne</div>
+            </div>
+            <div class="float-card fc-5" data-color="purple">
+                <div class="fc-title">💡 Pomysł</div>
+                <div class="fc-body">Projekt na konkurs</div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <span class="hero-badge">✨ Wizualne katalogowanie w jednym miejscu</span>
+            <h1 class="hero-title">
+                Twórz <span class="grad-text">kolorowe tablice</span><br>
+                z notatkami, plikami i&nbsp;multimediami
+            </h1>
+            <p class="hero-subtitle">
+                Notesownik to inspirowane Padletem narzędzie do katalogowania
+                <strong>plików, filmów, muzyki, kart pracy</strong> oraz notatek.
+                Każda tablica to osobna podstrona, którą możesz udostępnić linkiem.
+            </p>
+            <div class="hero-actions">
+                <button class="primary-btn lg" id="ctaCreateBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Stwórz swoją pierwszą tablicę
+                </button>
+                <a href="#boards" class="ghost-btn lg">Zobacz moje tablice</a>
+            </div>
+            <div class="hero-stats">
+                <div><strong>7</strong> typów treści</div>
+                <div><strong>8</strong> kolorów kart</div>
+                <div><strong>∞</strong> tablic</div>
+                <div><strong>0 zł</strong> bez konta</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+        <div class="section-head">
+            <span class="section-eyebrow">Funkcje</span>
+            <h2>Wszystko, czego potrzebujesz do organizacji wiedzy</h2>
+            <p>Każda tablica zapisuje się lokalnie i otrzymuje swój unikalny link.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="background:linear-gradient(135deg,#ffd166,#f4a261)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
+                </div>
+                <h3>Wizualne karty</h3>
+                <p>Kolorowe karteczki w stylu sticky notes z lekkim przekrzywieniem - jak na prawdziwej tablicy korkowej.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:linear-gradient(135deg,#ec4899,#d946ef)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4L20 10L8 22H2V16L14 4Z"/></svg>
+                </div>
+                <h3>Przeciągaj i upuszczaj</h3>
+                <p>Zmieniaj kolejność kart prostym gestem. Wszystkie zmiany zapisują się automatycznie.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                </div>
+                <h3>Udostępnij linkiem</h3>
+                <p>Każda tablica ma własny adres. Kliknij „Udostępnij" - link skopiuje się do schowka.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:linear-gradient(135deg,#10b981,#22c55e)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </div>
+                <h3>Eksport i import</h3>
+                <p>Pobierz całą tablicę jako plik JSON. Wgraj ją gdziekolwiek - na innym komputerze, w innej przeglądarce.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>Szukaj i filtruj</h3>
+                <p>Filtry kategorii, chmura tagów, wyszukiwarka pełnotekstowa - znajdziesz wszystko w sekundę.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:linear-gradient(135deg,#f97316,#fb923c)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </div>
+                <h3>Tryb jasny i ciemny</h3>
+                <p>Pracuj wygodnie o każdej porze dnia. Notesownik dostosuje się do Twoich oczu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT TYPES -->
+    <section class="section dark-section" id="types">
+        <div class="section-head">
+            <span class="section-eyebrow">7 typów treści</span>
+            <h2>Wszystko, co chcesz zachować</h2>
+            <p>Notesownik rozpoznaje typ treści i dobiera odpowiedni sposób prezentacji.</p>
+        </div>
+
+        <div class="types-grid">
+            <div class="type-card"><div class="type-emoji">📝</div><h4>Notatki</h4><p>Tekstowe karteczki z formatowaniem.</p></div>
+            <div class="type-card"><div class="type-emoji">🖼️</div><h4>Obrazy</h4><p>Z URL lub wgrane z dysku. Kliknij, by powiększyć.</p></div>
+            <div class="type-card"><div class="type-emoji">🎬</div><h4>Filmy</h4><p>YouTube i Vimeo osadzają się automatycznie.</p></div>
+            <div class="type-card"><div class="type-emoji">🎵</div><h4>Muzyka</h4><p>Pliki audio z wbudowanym odtwarzaczem.</p></div>
+            <div class="type-card"><div class="type-emoji">📎</div><h4>Pliki</h4><p>Dowolny dokument lub załącznik.</p></div>
+            <div class="type-card"><div class="type-emoji">📄</div><h4>Karty pracy</h4><p>PDF z podglądem i pobieraniem.</p></div>
+            <div class="type-card"><div class="type-emoji">🔗</div><h4>Linki</h4><p>Strony zewnętrzne z ikoną i opisem.</p></div>
+            <div class="type-card add-yours"><div class="type-emoji">✨</div><h4>I więcej</h4><p>Wszystko poukładane w jednym miejscu.</p></div>
+        </div>
+    </section>
+
+    <!-- BOARDS LIST -->
+    <section class="section" id="boards">
+        <div class="section-head">
+            <span class="section-eyebrow">Moje tablice</span>
+            <h2>Twoje notesowniki</h2>
+            <p>Wszystkie tablice zapisane lokalnie w tej przeglądarce.</p>
+        </div>
+
+        <div class="boards-grid" id="boardsGrid">
+            <!-- Filled by JS -->
+        </div>
+
+        <div class="boards-empty" id="boardsEmpty" style="display:none">
+            <div class="empty-illustration">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="10" y="14" width="44" height="40" rx="4"/>
+                    <line x1="10" y1="22" x2="54" y2="22"/>
+                    <circle cx="16" cy="18" r="1.5" fill="currentColor"/>
+                    <circle cx="22" cy="18" r="1.5" fill="currentColor"/>
+                    <circle cx="28" cy="18" r="1.5" fill="currentColor"/>
+                    <line x1="18" y1="32" x2="46" y2="32"/>
+                    <line x1="18" y1="40" x2="38" y2="40"/>
+                </svg>
+            </div>
+            <h3>Brak tablic</h3>
+            <p>Stwórz swoją pierwszą tablicę i zacznij katalogować treści.</p>
+            <button class="primary-btn lg" id="emptyCreateBtn">Stwórz tablicę</button>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Gotowy/a, by zacząć katalogować?</h2>
+        <p>Twoja pierwsza tablica jest o jedno kliknięcie stąd.</p>
+        <button class="primary-btn lg" id="footerCreateBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Stwórz nową tablicę
+        </button>
+    </section>
+
+    <footer class="landing-footer">
+        <p>© Notesownik · Wszystkie dane zapisywane są lokalnie w Twojej przeglądarce.</p>
+    </footer>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- BOARD VIEW                                                   -->
+<!-- ============================================================ -->
+<section class="view" id="view-board">
+    <header class="topbar">
+        <div class="topbar-left">
+            <a href="#/" class="back-btn" title="Wróć na stronę główną">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"/>
+                    <polyline points="12 19 5 12 12 5"/>
+                </svg>
+            </a>
+            <a href="#/" class="logo small">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h12l4 4v12a0 0 0 0 1 0 0H4z"/>
+                        <polyline points="16 4 16 8 20 8"/>
+                        <line x1="8" y1="13" x2="16" y2="13"/>
+                        <line x1="8" y1="17" x2="13" y2="17"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>Notesownik</h1>
+                </div>
+            </a>
+        </div>
+
+        <div class="topbar-center">
+            <div class="search-wrap">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Szukaj na tej tablicy...">
+                <kbd>/</kbd>
+            </div>
+        </div>
+
+        <div class="topbar-right">
+            <div class="layout-dropdown">
+                <button class="icon-btn" id="layoutBtn" title="Zmień układ">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                    </svg>
+                </button>
+                <div class="layout-menu" id="layoutMenu">
+                    <button class="layout-option" data-layout="masonry">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+                        <div><strong>Swobodny</strong><small>Karty dopasowane do treści</small></div>
+                    </button>
+                    <button class="layout-option" data-layout="grid">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                        <div><strong>Siatka</strong><small>Równe kafelki</small></div>
+                    </button>
+                    <button class="layout-option" data-layout="columns">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="18"/><rect x="10" y="3" width="5" height="18"/><rect x="17" y="3" width="5" height="18"/></svg>
+                        <div><strong>Kolumny</strong><small>Tablica z nagłówkami (kanban)</small></div>
+                    </button>
+                </div>
+            </div>
+            <button class="icon-btn" id="themeBtn" title="Zmień motyw">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="icon-btn" id="exportBtn" title="Eksportuj tablicę">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </button>
+            <button class="primary-btn" id="shareBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"/>
+                    <circle cx="6" cy="12" r="3"/>
+                    <circle cx="18" cy="19" r="3"/>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                </svg>
+                <span>Udostępnij</span>
+            </button>
+            <button class="primary-btn" id="openAddModal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                <span>Dodaj kartę</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="app-body">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Kategorie</h3>
+                <ul class="filter-list" id="categoryFilters">
+                    <li class="filter-item active" data-filter="all"><span class="dot all"></span> Wszystkie <span class="count" id="countAll">0</span></li>
+                    <li class="filter-item" data-filter="text"><span class="dot text"></span> Notatki <span class="count" id="countText">0</span></li>
+                    <li class="filter-item" data-filter="image"><span class="dot image"></span> Obrazy <span class="count" id="countImage">0</span></li>
+                    <li class="filter-item" data-filter="video"><span class="dot video"></span> Filmy <span class="count" id="countVideo">0</span></li>
+                    <li class="filter-item" data-filter="audio"><span class="dot audio"></span> Muzyka <span class="count" id="countAudio">0</span></li>
+                    <li class="filter-item" data-filter="file"><span class="dot file"></span> Pliki <span class="count" id="countFile">0</span></li>
+                    <li class="filter-item" data-filter="worksheet"><span class="dot worksheet"></span> Karty pracy <span class="count" id="countWorksheet">0</span></li>
+                    <li class="filter-item" data-filter="link"><span class="dot link"></span> Linki <span class="count" id="countLink">0</span></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Tagi</h3>
+                <div class="tag-cloud" id="tagCloud"><span class="empty-info">Brak tagów</span></div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Statystyki</h3>
+                <div class="stat-block">
+                    <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">kart</span></div>
+                    <div class="stat"><span class="stat-num" id="statTags">0</span><span class="stat-label">tagów</span></div>
+                </div>
+                <button class="danger-btn" id="clearAllBtn">Wyczyść kartę z tablicy</button>
+                <button class="danger-btn" id="deleteBoardBtn" style="margin-top:6px">Usuń tę tablicę</button>
+            </div>
+        </aside>
+
+        <main class="board-area">
+            <div class="board-header">
+                <div class="board-title-wrap">
+                    <h2 id="boardTitle" contenteditable="true">Moja tablica</h2>
+                    <p class="board-subtitle" id="boardSubtitle" contenteditable="true" data-placeholder="Dodaj opis tablicy...">Przeciągaj karty, kategoryzuj, dodawaj treści.</p>
+                </div>
+                <div class="board-meta">
+                    <span class="meta-badge" id="filterBadge">Wszystkie karty</span>
+                </div>
+            </div>
+
+            <div class="board" id="board"></div>
+            <div class="columns-board" id="columnsBoard" style="display:none"></div>
+
+            <div class="empty-state" id="emptyState">
+                <div class="empty-illustration">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="10" y="14" width="44" height="40" rx="4"/>
+                        <line x1="10" y1="22" x2="54" y2="22"/>
+                        <circle cx="16" cy="18" r="1.5" fill="currentColor"/>
+                        <circle cx="22" cy="18" r="1.5" fill="currentColor"/>
+                        <circle cx="28" cy="18" r="1.5" fill="currentColor"/>
+                        <line x1="18" y1="32" x2="46" y2="32"/>
+                        <line x1="18" y1="40" x2="38" y2="40"/>
+                        <line x1="18" y1="48" x2="42" y2="48"/>
+                    </svg>
+                </div>
+                <h3>Ta tablica jest pusta</h3>
+                <p>Kliknij <strong>Dodaj kartę</strong>, by zacząć.</p>
+                <button class="primary-btn" onclick="document.getElementById('openAddModal').click()">Dodaj pierwszą kartę</button>
+            </div>
+        </main>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- NEW BOARD MODAL                                              -->
+<!-- ============================================================ -->
+<div class="modal-overlay" id="newBoardModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>Stwórz nową tablicę</h2>
+            <button class="icon-btn close" id="closeNewBoard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <label class="field-label" for="newBoardTitle">Nazwa tablicy</label>
+            <input type="text" id="newBoardTitle" placeholder="np. Lekcja matematyki, Notatki projektowe...">
+
+            <label class="field-label" for="newBoardDesc">Opis (opcjonalnie)</label>
+            <textarea id="newBoardDesc" rows="2" placeholder="Krótki opis, do czego służy tablica..."></textarea>
+
+            <label class="field-label">Motyw tablicy</label>
+            <div class="theme-picker" id="themePicker">
+                <button class="theme-swatch active" data-theme-color="sunset" style="background:linear-gradient(135deg,#ff6b6b,#ffa94d)" title="Zachód słońca"></button>
+                <button class="theme-swatch" data-theme-color="ocean" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)" title="Ocean"></button>
+                <button class="theme-swatch" data-theme-color="forest" style="background:linear-gradient(135deg,#10b981,#22c55e)" title="Las"></button>
+                <button class="theme-swatch" data-theme-color="lavender" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)" title="Lawenda"></button>
+                <button class="theme-swatch" data-theme-color="cherry" style="background:linear-gradient(135deg,#f43f5e,#fb7185)" title="Wiśnia"></button>
+                <button class="theme-swatch" data-theme-color="gold" style="background:linear-gradient(135deg,#fbbf24,#f59e0b)" title="Złoto"></button>
+            </div>
+
+            <label class="field-label" style="margin-top:18px">
+                <input type="checkbox" id="seedDemo" style="margin-right:6px">
+                Dodaj przykładowe karty na start
+            </label>
+        </div>
+        <div class="modal-footer">
+            <button class="ghost-btn" id="cancelNewBoard">Anuluj</button>
+            <button class="primary-btn" id="createBoardBtn">Stwórz tablicę</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- ADD/EDIT CARD MODAL                                          -->
+<!-- ============================================================ -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <div class="modal-header">
+            <h2 id="modalTitle">Dodaj nową kartę</h2>
+            <button class="icon-btn close" id="closeModal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <label class="field-label">Typ karty</label>
+            <div class="type-selector" id="typeSelector">
+                <button class="type-btn active" data-type="text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg><span>Notatka</span></button>
+                <button class="type-btn" data-type="image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Obraz</span></button>
+                <button class="type-btn" data-type="video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><span>Film</span></button>
+                <button class="type-btn" data-type="audio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>Muzyka</span></button>
+                <button class="type-btn" data-type="file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg><span>Plik</span></button>
+                <button class="type-btn" data-type="worksheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg><span>Karta pracy</span></button>
+                <button class="type-btn" data-type="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Link</span></button>
+            </div>
+
+            <label class="field-label" for="cardTitle">Tytuł</label>
+            <input type="text" id="cardTitle" placeholder="Wpisz tytuł karty...">
+
+            <label class="field-label" for="cardContent"><span id="contentLabel">Treść notatki</span></label>
+            <textarea id="cardContent" rows="4" placeholder="Wpisz treść..."></textarea>
+
+            <div id="urlField" class="field-group" style="display:none">
+                <label class="field-label" for="cardUrl"><span id="urlLabel">URL</span></label>
+                <input type="text" id="cardUrl" placeholder="Wklej link...">
+                <p class="field-hint" id="urlHint"></p>
+            </div>
+
+            <div id="fileField" class="field-group" style="display:none">
+                <label class="field-label">Lub wgraj plik z dysku</label>
+                <div class="file-drop" id="fileDrop">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span>Przeciągnij plik tutaj albo <u>kliknij, aby wybrać</u></span>
+                    <input type="file" id="fileInput" hidden>
+                </div>
+                <p class="field-hint">Plik zostanie zapisany w przeglądarce (do ok. 5MB).</p>
+            </div>
+
+            <label class="field-label" for="cardTags">Tagi (oddziel przecinkiem)</label>
+            <input type="text" id="cardTags" placeholder="np. matematyka, klasa-3, ważne">
+
+            <label class="field-label">Kolor karty</label>
+            <div class="color-picker" id="colorPicker">
+                <button class="color-swatch active" data-color="yellow" style="background:#fff3a6"></button>
+                <button class="color-swatch" data-color="pink" style="background:#ffd6e0"></button>
+                <button class="color-swatch" data-color="blue" style="background:#cfe6ff"></button>
+                <button class="color-swatch" data-color="green" style="background:#d4f5d0"></button>
+                <button class="color-swatch" data-color="purple" style="background:#e0d4ff"></button>
+                <button class="color-swatch" data-color="orange" style="background:#ffd8b1"></button>
+                <button class="color-swatch" data-color="mint" style="background:#c8f1e8"></button>
+                <button class="color-swatch" data-color="white" style="background:#ffffff"></button>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="ghost-btn" id="cancelModal">Anuluj</button>
+            <button class="primary-btn" id="saveCard">Zapisz kartę</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SHARE MODAL                                                  -->
+<!-- ============================================================ -->
+<div class="modal-overlay" id="shareModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>Udostępnij tablicę</h2>
+            <button class="icon-btn close" id="closeShare">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="share-tabs">
+                <button class="share-tab active" data-tab="local">Link lokalny</button>
+                <button class="share-tab" data-tab="full">Link z danymi</button>
+            </div>
+
+            <div class="share-tab-content" data-tab-content="local">
+                <p class="share-desc">Otwiera tablicę z danych zapisanych w <strong>tej przeglądarce</strong>. Najlepszy do zakładek i własnego użytku.</p>
+                <div class="share-link-row">
+                    <input type="text" id="shareLocalLink" readonly>
+                    <button class="primary-btn" id="copyLocalBtn">Kopiuj</button>
+                </div>
+            </div>
+
+            <div class="share-tab-content" data-tab-content="full" style="display:none">
+                <p class="share-desc">Cała tablica zakodowana w linku. Działa <strong>na innych urządzeniach</strong> - osoba otwierająca dostanie kopię tablicy.</p>
+                <div class="share-link-row">
+                    <input type="text" id="shareFullLink" readonly>
+                    <button class="primary-btn" id="copyFullBtn">Kopiuj</button>
+                </div>
+                <p class="field-hint" id="shareSizeHint"></p>
+            </div>
+
+            <div class="share-qr-wrap">
+                <p class="field-hint">💡 Wskazówka: link możesz zapisać jako zakładkę, wysłać mailem, na Messengerze, opublikować w klasie - każdy kto go otworzy zobaczy Twoją tablicę.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- LIGHTBOX & TOAST                                             -->
+<!-- ============================================================ -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="lightbox-content" id="lightboxContent"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- PWA INSTALL BANNER -->
+<div class="pwa-banner" id="pwaBanner">
+    <div class="pwa-banner-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12"/><polyline points="7 8 12 3 17 8"/><path d="M5 21h14"/>
+        </svg>
+    </div>
+    <div class="pwa-banner-text">
+        <strong>Zainstaluj Notesownik</strong>
+        <span>Działa offline i uruchamia się jak aplikacja</span>
+    </div>
+    <button class="ghost-btn" id="pwaBannerDismiss">Nie teraz</button>
+    <button class="primary-btn" id="pwaBannerInstall">Zainstaluj</button>
+</div>
+
+<input type="file" id="importFile" accept=".json" hidden>
+
+<script src="script.js"></script>
+</body>
+</html>
