@@ -4,7 +4,7 @@
 
 Aplikacja webowa w stylu Padlet - polska, w pełni działająca offline dzięki PWA, bez konta i bez wysyłania danych na serwer. Wszystko zapisuje się lokalnie w Twojej przeglądarce.
 
-🔗 **Live demo:** _(dodaj link po włączeniu GitHub Pages)_
+🔗 **Live demo:** https://dandeliant.github.io/notesownik/
 
 ---
 
